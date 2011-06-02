@@ -1,0 +1,68 @@
+Date: 27 February 2011
+Summary: \nWhen [Lisa][13] and I moved to West Chester, we decided to use First National\nBank of Chester County, since they're local and don't charge me when I use a\nsurcharge-free ATM at [Wawa][14].\n\n   [13]: http://lisayoder.blogspot.com/\n   [14]: http://www.wawa.com/WawaWeb/\n\nTheir online banking site was pretty silly. It complained when we tried to use\na password with more than 8 characters. And it wasn't very pretty or\nexceedingly easy to use. But oh well. They're a small-town bank. We forgave\nthem.\n\nFirst National was acquired by Graystone. Which is a bigger bank. With more\nresources. Able to buy smaller banks. Presumably able to pay good web\ndevelopers.\n
+Read more: But no. Read more.
+
+# Graystone Bank should be embarrassed of their website. And they're losing at least one customer.
+
+When [Lisa][13] and I moved to West Chester, we decided to use First National
+Bank of Chester County, since they're local and don't charge me when I use a
+surcharge-free ATM at [Wawa][14].
+
+   [13]: http://lisayoder.blogspot.com/
+   [14]: http://www.wawa.com/WawaWeb/
+
+Their online banking site was pretty silly. It complained when we tried to use
+a password with more than 8 characters. And it wasn't very pretty or
+exceedingly easy to use. But oh well. They're a small-town bank. We forgave
+them.
+
+First National was acquired by Graystone. Which is a bigger bank. With more
+resources. Able to buy smaller banks. Presumably able to pay good web
+developers.
+
+Graystone loves drop-down menus. What sort of online banking would you like?
+
+![0screen_shot_2011-02-19_at_10][15]
+
+   [15]: http://posterous.com/getfile/files.posterous.com/chadoh/ejdkZaIym1usRscIhWDp7x8AE1LKgkWazlZ0TdlejhdIfwJj7KKRnHVdSNK3/0Screen_shot_2011-02-19_at_10.5.png
+
+And after you sign in, what page would you like to see?
+
+![Screen_shot_2011-02-19_at_10][16]
+
+   [16]: http://posterous.com/getfile/files.posterous.com/chadoh/nNb7MtKgPGSmAbBpv3aCMWe1Nw8pDKnKFnn3IPKInA4LZ5BqqMGdcDEdVR6G/Screen_shot_2011-02-19_at_10.5.png
+
+Ok, so I know you want to see your recent transactions, but please tell me
+what sort of transactions!
+
+![Screen_shot_2011-02-19_at_11][17]
+
+   [17]: http://posterous.com/getfile/files.posterous.com/chadoh/Yf2U8OpdNwKlj9JWPeoaztekGNU9MfXpP2m9trW46XxuG4abWYF0iw5ifegc/Screen_shot_2011-02-19_at_11.0.png
+
+(Note that most of the simple text links are using images... I never
+understand this design decision. "We don't want our text to look good when
+people zoom in," or maybe "We want to be sure to be locked into this ugly font
+choice forever.")
+
+As is usually the case with ugly websites, it is also really hard to do
+anything. Hard to find anything. And the transaction list didn't even show our
+balance anywhere. We had to go to the "Balances" section to get that and then
+just remember it while browsing our transactions.
+
+I say "didn't" in past tense because it _does_ show it now. And I wonder if it
+was in response to my feedback, sent after a few attempts to struggle through
+their tragic decision to hire far too few developers. Here's what I said:
+
+> This is an emergency: Take your website seriously. Fire everyone who made
+> the current design decisions. Your website is more important than your
+> physical building, and right now it's like you put your bank in an abandoned
+> warehouse with malfunctioning lights. I'm going to change banks just because
+> your online banking is so terrible. I wouldn't have thought it possible, but
+> it got *worse* after the merger. I can't even see my current balance in my
+> transactions history. Ick ick ick. Abandon ship.
+
+Lisa &amp; I thought we'd just stick out the whole merger mess. How bad could it
+be? But this website is a deal breaker. We're going to [punch the pig][18].
+Lisa is signing us up now.
+
+   [18]: https://www.pncvirtualwallet.com/main.html

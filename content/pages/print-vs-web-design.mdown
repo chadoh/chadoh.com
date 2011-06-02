@@ -1,0 +1,106 @@
+Date: 31 May 2011
+Summary: [A friend](http://twitter.com/#!/swati_p) told me "here's a fun little video by Jason Santa Maria (who is quite funny in an adorkable way) discussing print vs web design."\n\n<iframe src="http://player.vimeo.com/video/4394152?title=0&amp;byline=0&amp;portrait=0" width="400" height="230" frameborder="0"> </iframe>\n\n## My Commentary\n\nThis presentation: A  \nThe term "adorkable": A+\n\nBut here's the thing: The most important part of the web is the _content_, not the _design_. But we can change that if we want.
+Read more: Read my full commentary
+
+# Print vs Web design
+
+[A friend][1] told me "here's a fun little video by Jason Santa
+Maria (who is quite funny in an adorkable way) discussing print vs
+web design."
+
+<iframe
+  src="http://player.vimeo.com/video/4394152?title=0&amp;byline=0&amp;portrait=0"
+  width="400" height="230" frameborder="0">
+</iframe>
+
+## My Commentary
+
+This presentation: A  
+The term "adorkable": A+
+
+The presentation loses points for ending with a "Thank you"
+slide instead of a summary (the inbuilt summary/overview in
+a [prezi][2] sets the standard).
+
+The web was originally envisioned as just kind of a content
+dump, I believe. Because, as he pointed out, it transcends
+device. You have Kindles and iPads and Nokia phones all
+accessing the same content. So no matter what sort of screen
+someone uses to peer in to your website, you want to make sure
+they get the most important part out. If the most important
+part is the design, then the web is not the medium for you,
+most likely! It is by nature not pixel perfect. Even if two
+folks happen to be using the same exact hardware (device and
+screen) to look at your creation, using a different browser
+will make it look different. The most important part on the
+web is assumed to be the content. That's the way it was
+originally dreamed and how it continues to evolve.
+
+However, I love this discussion. Because I'd love to see more
+immersive design for each article, like looking at a print
+magazine instead of looking at a database. From a developer
+perspective, things like Sass and Compass will free designers
+to [accomplish this][3] much more easily. And from a designer
+perspective –
+
+I disagree that we have no way to discern article/publication
+length when viewing an online resource. If the entire thing is
+in one page, we have the scrollbar height (one reason to hate
+[badly-made flash scrollboxes][4]). Or you can have
+pagination-per-article. Which can be done in a super annoying
+way, so that the publication can sell more ads (thankfully, we
+have extensions like [iReader][5]), but can also be done in a way
+that very closely matches that of a physical medium (the articles
+in [the NYTimes app][6] make clever use of JavaScript&such to adjust
+the column-widths to your screen size, and show a handy "page n
+of N" at the bottom of each).
+
+However, I haven't seen many good ways for conveying entire
+publication length. I think this is mainly because it rarely
+comes up. When the NYTimes is online, it's not a publication.
+Articles are pushed out as they're written. Which is great, in
+many senses. The fact that news items were ever bound up in a
+daily publication was just a necessity of the medium. I think
+news makes more sense when each story can be released as it
+happens.
+
+But I think that there will still be many uses for publications. To
+have many articles bound together into a group. A magazine. A book.
+An album. And I haven't seen this done very well, up to this point.
+(Several e-zines I've seen just release a PDF, which I resent.)
+Though perhaps I have not seen it done well because I haven't looked
+much—I have seen an [online-novel-in-process][7], which gives some vague
+notion of length via the prominent Table of Contents, but nothing as
+tangible even as a scrollbar or page numbers all lined up. And
+certainly not as tangible as a physical depth in my hands.
+
+This is something I'm grappling with right now as I work on a way
+for the [Problem Child][8] editors to publish their literary magazine
+online. I've decided to give them an actual way to mimic their
+physical pages. So page numbers will be displayed prominently along
+the top and the bottom of each page ("I am on page 6 of 30"), and
+the scroll bar will give an idea of how long your current page is.
+But there's the catch. Each page is a different length. So any sense
+you have of how far you've trudged through a magazine is mostly an
+illusion. (Though I suppose this is the same as the print
+publication, which adjusts font sizes and uses clever layouts to jam
+longer pieces into a single page.)
+
+By mid July, you'll be able to go to see what I come up with by
+visiting [the Fruit Blots magazine][9]. But for now, I'm very open
+to suggestions. I'm very inspired by Google's [20 Things I Learned][10]
+book, but I don't think that sort of strictly-structured layout can
+work with content of unknown length. The design needs to be
+[responsive][11]. Let me know your thoughts.
+
+  [1]: http://twitter.com/#!/swati_p
+  [2]: http://prezi.com/
+  [3]: http://blog.peepcode.com/tutorials/2010/about-this-blog
+  [4]: http://www.goplayyoga.com/#!schedule-and-rates
+  [5]: https://chrome.google.com/webstore/detail/ppelffpjgkifjfgnbaaldcehkpajlmbc?hl=en-US
+  [6]: https://chrome.google.com/webstore/detail/ecmphppfkcfflgglcokcbdkofpfegoel?hl=en-US
+  [7]: http://www.greengreenmud.com/
+  [8]: http://problemchildmag.com/
+  [9]: http://problemchildmag.com/magazines
+  [10]: http://www.20thingsilearned.com/
+  [11]: http://www.alistapart.com/articles/responsive-web-design/

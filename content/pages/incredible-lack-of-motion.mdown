@@ -1,0 +1,19 @@
+Date: 17 November 2010
+
+# Incredible lack of motion creates the most eye-catching channel on TV
+
+Nancy Grace, who I never heard of before, has a show on TV. Today, she called
+into it instead of being filmed on it. The folks at CNN set up a mostly-static
+page with a framed Nancy-slideshow. "Nancy Grace on the phone" the title read,
+with a single sentence of background info at the bottom of the screen.
+
+It's amazing how gripping that simplicity was. The staticy phone voice was a
+stark contrast to the [over-compressed][13], flashy commercials and repetitive
+show hosts on the surrounding channels.
+
+   [13]: http://en.wikipedia.org/wiki/Dynamic_range_compression#Marketing
+
+But the take-away isn't simplicity. Simplicity is certainly good, but what
+made Nancy's segment stick out today wasn't the minimalism, it was the
+contrast. It was distinct from the nearby programming. It was different enough
+to stop flipping, and to spend a few minutes caring about Nancy Grace.

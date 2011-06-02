@@ -1,0 +1,8 @@
+chadoh
+======
+
+My blog/eventual-portfolio. Made with [Nesta][1]. Inspired by
+[PeepCode][2].
+
+  [1]: http://nestacms.com/
+  [2]: http://blog.peepcode.com/tutorials/2010/about-this-blog

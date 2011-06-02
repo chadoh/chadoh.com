@@ -1,0 +1,14 @@
+Date: 20 October 2010
+
+# Good Coders are Lazy
+
+I have very little desire to make my own website, nor do I have
+time. Here comes Posterous to my rescue. I don't feel guilty or
+lazy, I feel (de)light(ed).
+
+**Update** (<time>2011-06-02</time>): This is old news. I am now
+building my blog with [Nesta][1], which was inspired by a [post from
+Peep Code][2].
+
+  [1]: http://nestacms.com/
+  [2]: http://blog.peepcode.com/tutorials/2010/about-this-blog
