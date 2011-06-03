@@ -1,0 +1,54 @@
+Date: 3 June 2011
+Summary: \nGood software development teams work in iterations, even if they're\npracticing [continuous deployment][1]. They say "We think we can get\nthrough this much stuff in the next two weeks; let's prioritize with the\ncustomers so that what's most important gets done first." Then, at the\nend of the iteration, they evaluate whether they were overly optimistic\nor pessimistic and meet with the customer to plan the next iteration.\n\n  [1]: http://www.startuplessonslearned.com/2009/06/why-continuous-deployment.html\n\nThe *best* development teams also iterate their *processes*. "Is this\ntwo-week schedule thing really the best? Let's try a one-week schedule\nand see if we get more done." Stuff like that.\n\nAnd, correspondingly, the best *humans* iterate *their* processes. Which\nleads me to some startling news!:\n\n## No more Posterous\n\nIf you were subscribed to the old RSS feed, you'll have to subscribe to\n[this one][2] instead.\n\n  [2]: http://chadoh.com/articles.xml\n
+Read more: Find out why.
+
+# Iterating (the blog)
+
+Good software development teams work in iterations, even if they're
+practicing [continuous deployment][1]. They say "We think we can get
+through this much stuff in the next two weeks; let's prioritize with the
+customers so that what's most important gets done first." Then, at the
+end of the iteration, they evaluate whether they were overly optimistic
+or pessimistic and meet with the customer to plan the next iteration.
+
+The *best* development teams also iterate their *processes*. "Is this
+two-week schedule thing really the best? Let's try a one-week schedule
+and see if we get more done." Stuff like that.
+
+And, correspondingly, the best *humans* iterate *their* processes. Which
+leads me to some startling news!:
+
+## No more Posterous
+
+I want everything that I have a part in to become gradually better. I do
+not always achieve this. There are things I do not iterate. Things like:
+
+1. My closet
+
+But I have decided to become intentional about my blog. I have decided
+to go with [Nesta][2] instead of Posterous because I can iterate better.
+I have complete control over and responsibility for the design. I hope
+to someday set myself up with a way to create a [unique design per
+post][3]. Blogs [like that][4] delight me, and I cannot think of a better way
+to strengthen my design chops.
+
+Don't get me wrong! Posterous is great and I [still recommend it][5].
+But I should be immersed in tools of my trade. I should be making
+structural/design improvements every time I post.
+
+And *you*, if you were subscribed to my old RSS feed, should subscribe
+to [this one][6] instead. This will be the last post that I put on
+Posterous instead of only the new [chadoh.com][8].
+
+(PS: You can see the source code that makes this blog on [my github][7];
+the articles are in [`content/pages`][9].)
+
+  [1]: http://www.startuplessonslearned.com/2009/06/why-continuous-deployment.html
+  [2]: http://nestacms.com/
+  [3]: http://chadoh.com/print-vs-web-design
+  [4]: http://blog.peepcode.com/tutorials/2010/about-this-blog
+  [5]: http://chadoh.com/good-coders-are-lazy
+  [6]: http://chadoh.com/articles.xml
+  [7]: https://github.com/chadoh/chadoh.com
+  [8]: http://chadoh.com
+  [9]: https://github.com/chadoh/chadoh.com/tree/master/content/pages
