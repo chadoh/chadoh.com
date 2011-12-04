@@ -14,6 +14,9 @@ $base-font: $base-scale * 1em
 $vertical-rhythm: 1.75em
 $base-vertical-margin: 1.75em
 
+@mixin text-shadow
+  text-shadow: 0 0 5px #aaa
+
 @mixin adjust-font-size($scale, $top-weight: 1, $bottom-weight: 1)
   $average-margin: $base-vertical-margin / $scale
   margin-top: $average-margin * $top-weight

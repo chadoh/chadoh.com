@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:600)
 @import "mixins.sass"
 @import "colors.sass"
 
@@ -16,25 +15,27 @@ $border-style: 1px dashed $border-color
 
 // Typography
 
+@mixin text-shadow
+  text-shadow: 0 2px 3px #ddd
+
 body
   font: ($base-font * 1.05) Georgia, serif
   line-height: $vertical-rhythm
   color: $base-color
-  background: $background-color
+  background-color: red
 
 header[role=banner]
   h1,
   h2
     margin: 0
+    line-height: 1.2em
     font-weight: normal
-    font-family: 'Josefin Slab', serif
   h1
-    font-size: 4em
-    +text-shadow
-    line-height: 0.75em
+    font-size: 327%
+    @include text-shadow
   h2
     color: $meta-color
-    font-size: 0.75em
+    font-size: 1em
 
 h1, h2, h3, h4, h5, h6
   font-family: Georgia, serif
@@ -165,6 +166,9 @@ article p.meta
 article h1 a
   border-bottom: none
 
+body
+  background: $background-color
+  
 article
   img
     max-width: 100%
