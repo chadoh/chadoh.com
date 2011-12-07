@@ -18,8 +18,8 @@ author:
 # You can stick with the default look and feel, or use a theme. Themes are
 # easy to create or install, and live inside the themes directory. You
 # can also use scripts/theme to install them.
-#
-# theme: postal3
+
+theme: immerse
 
 # If you want to use the Disqus service (http://disqus.com) to display
 # comments on your site, register a Disqus account and then specify your
