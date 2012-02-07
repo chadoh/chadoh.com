@@ -22,7 +22,7 @@ module Nesta
     #
     # Put your assets in themes/immerse/public/immerse.
     #
-    # use Rack::Static, :urls => ["/immerse"], :root => "themes/immerse/public"
+    use Rack::Static, :urls => ["/immerse"], :root => "themes/immerse/public"
 
     helpers do
       # Add new helpers here.

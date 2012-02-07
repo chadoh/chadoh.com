@@ -12,12 +12,12 @@
     %link{ :href => "/articles.xml", :rel => "alternate", :type => "application/atom+xml" }
     = haml :analytics, :layout => false
   %body{ :class => @body_class }
-    %nav{ :role => 'navigation' }
-      %ul
-        %li
-          %header{ :role => 'banner' }
-            %h1.title= @heading
-            %h2.subtitle= @subtitle
+    #header-and-nav
+      %header{ :role => 'banner' }
+        %h1.title= @heading
+        %h2.subtitle= @subtitle
+      %nav{ :role => 'navigation' }
+        - display_menu @menu_items, :class => "menu"
     #container
       = yield
       #footer

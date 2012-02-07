@@ -1,4 +1,8 @@
 @import compass/typography/lists/horizontal-list
+@import compass/css3/inline-block
+@import compass/css3/box-sizing
+@import compass/css3/transition
+@import url(http://fonts.googleapis.com/css?family=Alegreya:400,700)
 
 // Variables
 
@@ -15,6 +19,8 @@ $h2-scale: 1.64
 $h3-scale: 1.45
 $h4-scale: 1.18
 
+$default-transition-duration: 500ms
+
 // Reset
 
 *
@@ -23,7 +29,7 @@ $h4-scale: 1.18
 
 // Typography
 
-$base-scale: 0.88
+$base-scale: 1
 $base-font: $base-scale * 1em
 $vertical-rhythm: 1.5em
 $base-vertical-margin: 1.5em
@@ -70,9 +76,6 @@ ul
   margin: 0
   margin-bottom: $base-vertical-margin
 
-li
-  @include adjust-font-size(1, 0, 0)
-
 blockquote
   margin: $base-vertical-margin 0
   border-left: 0.5em solid $tint
@@ -89,23 +92,68 @@ img
 
 // Layout
 
-body > nav
+#header-and-nav
   width: 100%
-  min-height: 5%
-  > ul
-    +horizontal-list-container
+  height: 15%
+  +clearfix
+  line-height: 2.5em
+  font-size: 2em
+  text-align: center
+  border-bottom: 1px solid transparent
+  +transition
+  +transition-property(border)
+  +transition-duration(1s)
+  *
     height: 100%
-    > li
-      +horizontal-list-item
-      padding: 1.5em
+    font-family: Alegreya, serif
+  > *
+    +box-sizing(border-box)
+    float: left
+
+  header
+    +clearfix
+    width: 20%
+    min-width: 6.5em
+    h1
+      font-size: 2em
+      line-height: 1em
+      margin: 0
+    h2
+      font-size: 0.4em
+      margin: 0
+        top: -1em
+
+  nav
+    width: 80%
+    a
+      text-decoration: none
+      display: block
+      width: 100%
+      color: $base-color
+      border: 1px solid transparent
+      border-width: 0 1px
+      +transition
+      +transition-property(border)
+      &:hover
+        border-color: $base-color
+    > ul
+      +horizontal-list-container
+      width: 100%
+      float: left
+      > li
+        +horizontal-list-item
+        width: 20%
+        padding: 0
+        &:last-child
+          float: right
+  
+  &:hover
+    border-bottom: 1px solid $base-color
 
 div#container
   width: 54em
   margin: 0 auto
 
-  div#header
-    padding: 1em
-  
   div.breadcrumb
     padding: 0.5em 1.1em
     
@@ -136,8 +184,6 @@ div#container
   text-shadow: 0 -1px 1px white
 
 body
-  background: $background-tint
-  
   &.home h1
     @include adjust-font-size($h1-scale, 1, -1)
 
