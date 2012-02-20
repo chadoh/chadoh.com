@@ -1,0 +1,8 @@
+- unless pages.empty?
+  %ol.pages
+    - pages.each do |page|
+      %li{ class: request.path == page.abspath && 'current' }
+        - haml_tag (defined?(heading) ? heading : :h2) do
+          %a{ :href => page.abspath }= ellipse_if_long page.heading
+        - if page.date
+          .date= format_date(page.date)

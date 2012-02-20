@@ -1,0 +1,32 @@
+!!!
+%html{ :lang => "en", "xml:lang" => "en", :xmlns => 'http://www.w3.org/1999/xhtml' }
+  %head
+    %meta{ "http-equiv" => "content-type", "content" => "text/html; charset=utf-8" }
+    - if @description
+      %meta{ "name" => "description", "content" => @description }
+    - if @keywords
+      %meta{ "name" => "keywords", "content" => @keywords }
+    %title= @title
+    %link{ :href => "/css/master.css", :media => "screen", :rel => "stylesheet", :type => "text/css" }
+    - local_stylesheet_link_tag('local')
+    %link{ :href => "/articles.xml", :rel => "alternate", :type => "application/atom+xml" }
+    = haml :analytics, :layout => false
+  %body{ :class => @page.flagged_as?('main-nav-page') && 'main-nav-page' }
+    %nav#main{ :role => 'navigation' }
+      %ul
+        %li.header
+          %header{ :role => 'banner' }
+            %h1.title= @heading
+            %h2.subtitle= @subtitle
+        - @menu_items.each do |item|
+          - display_menu_item item
+        = haml :feed, :layout => false
+    #container
+      = yield
+      #footer
+        %p
+          Powered by Nesta, a
+          = succeed "." do
+            %a{ :href => "http://nestacms.com" } Ruby CMS
+  -#%script(type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+  -#%script(type='text/javascript' src='/immerse/javascripts/application.js')
