@@ -25,7 +25,12 @@ module Nesta
     use Rack::Static, :urls => ["/immerse"], :root => "themes/immerse/public"
 
     helpers do
-      # Add new helpers here.
+      def article_titles(articles)
+        haml(:titles, :layout => false, :locals => { :pages => articles })
+      end
+      def ellipse_if_long(text)
+        text.split.length > 4 ? "#{text.split.first(4).join(' ')}&hellip;" : text
+      end
     end
 
     # Add new routes here.

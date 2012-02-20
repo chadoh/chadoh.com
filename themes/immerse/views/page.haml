@@ -1,21 +1,29 @@
 #content
-  - if @page.date
-    .date= format_date(@page.date)
+  #column-wrap-wrap
+    .border
 
-  ~ @page.to_html(self)
+    #column-wrap
+      #columns
+        -#- if @page.date
+          .date= format_date(@page.date)
 
-  = haml :summaries, :layout => false, :locals => { :pages => @page.pages, :heading => :h3 }
+        ~ @page.to_html(self)
 
-  - unless @page.articles.empty?
-    %h2= "Articles on #{@page.heading}"
-    = haml :summaries, :layout => false, :locals => { :pages => @page.articles, :heading => :h3 }
+        = haml :summaries, :layout => false, :locals => { :pages => @page.pages, :heading => :h3 }
 
-  - unless @page.categories.empty?
-    .categories
-      %strong Categories:
-      - @page.categories.each do |category|
-        %a{ :href => category.abspath }= category.heading
+        - unless @page.articles.empty?
+          %h2= "Articles on #{@page.heading}"
+          = haml :summaries, :layout => false, :locals => { :pages => @page.articles, :heading => :h3 }
 
+        - unless @page.categories.empty?
+          .categories
+            %strong Categories:
+            - @page.categories.each do |category|
+              %a{ :href => category.abspath }= category.heading
+
+    .border
+  -#= haml :social, :layout => false
   = haml :comments, :layout => false
+
 
 = haml :sidebar, :layout => false

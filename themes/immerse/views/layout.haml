@@ -11,13 +11,16 @@
     - local_stylesheet_link_tag('local')
     %link{ :href => "/articles.xml", :rel => "alternate", :type => "application/atom+xml" }
     = haml :analytics, :layout => false
-  %body{ :class => @body_class }
-    #header-and-nav
-      %header{ :role => 'banner' }
-        %h1.title= @heading
-        %h2.subtitle= @subtitle
-      %nav{ :role => 'navigation' }
-        - display_menu @menu_items, :class => "menu"
+  %body{ :class => @page.flagged_as?('main-nav-page') && 'main-nav-page' }
+    %nav#main{ :role => 'navigation' }
+      %ul
+        %li.header
+          %header{ :role => 'banner' }
+            %h1.title= @heading
+            %h2.subtitle= @subtitle
+        - @menu_items.each do |item|
+          - display_menu_item item
+        = haml :feed, :layout => false
     #container
       = yield
       #footer
@@ -25,6 +28,5 @@
           Powered by Nesta, a
           = succeed "." do
             %a{ :href => "http://nestacms.com" } Ruby CMS
-          Designed by
-          = succeed "." do
-            %a{ :href => "http://effectif.com" } Graham Ashton
+  -#%script(type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+  -#%script(type='text/javascript' src='/immerse/javascripts/application.js')
