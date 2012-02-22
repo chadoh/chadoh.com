@@ -5,14 +5,14 @@ Summary: You've probably heard of "The Internet", and maybe you think it's high 
 
 My brother recently reached out to his web-savvy comrades (me being one)
 on behalf of an artist friend who, in his own words, works "with actual
-things and the shift to blips of light and glowing screens is something
+things, and the shift to blips of light and glowing screens is something
 of a stretch".
 
 Myself having suffered from grandiose website visions my whole life, I
 am well aware that what seems like a simple website idea can become
-years of effort, I was cautious, but I dropped him a line.
+years of effort. So I was cautious, but I dropped him a line.
 
-And it turns out that the hardest part is simple **where to start?**
+And it turns out that the hardest part is simply **where to start?**
 
 Well, I'll tell you. Here's what I told him, minus some very negative
 sentiments about GoDaddy (but seriously stay away from those a-holes):
@@ -80,3 +80,13 @@ business persona instead of your self. Yes, that's a hard line to walk.
 So, if you're feeling a bit like he was, I hope it goes well!, and that
 you even learn to enjoy the incorporation of blips of light and glowing
 screens into your work!
+
+  [1]: http://www.flickr.com/
+  [2]: http://www.google.com/+/business/
+  [3]: https://twitter.com/
+  [4]: http://www.wikihow.com/Use-Twitter
+  [5]: http://www.facebook.com/pages/create.php
+  [6]: https://www.tumblr.com/
+  [7]: https://about.me/
+  [8]: https://posterous.com/
+  [9]: http://www.etsy.com/
