@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/chadoh/nesta.git
-  revision: be0095c6fe89e5b329a9705831358560da080a0c
+  revision: c94ca0912d80bcdfc3e9fe8ce1e53a0313f4a7aa
   specs:
     nesta (0.9.11)
       RedCloth (~> 4.2)
