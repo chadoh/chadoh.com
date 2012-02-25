@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/chadoh/nesta.git
+  revision: be0095c6fe89e5b329a9705831358560da080a0c
+  specs:
+    nesta (0.9.11)
+      RedCloth (~> 4.2)
+      haml (~> 3.1)
+      rack (~> 1.1)
+      rdiscount (~> 1.6)
+      sass (~> 3.1)
+      shotgun (>= 0.8)
+      sinatra (~> 1.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -9,21 +22,17 @@ GEM
       sass (~> 3.1)
     fssm (0.2.8.1)
     haml (3.1.4)
-    nesta (0.9.11)
-      RedCloth (~> 4.2)
-      haml (~> 3.1)
-      rdiscount (~> 1.6)
-      sass (~> 3.1)
-      shotgun (>= 0.8)
-      sinatra (= 1.2.6)
     rack (1.4.1)
+    rack-protection (1.2.0)
+      rack
     rdiscount (1.6.8)
     sass (3.1.14)
     shotgun (0.9)
       rack (>= 1.0)
-    sinatra (1.2.6)
-      rack (~> 1.1)
-      tilt (>= 1.2.2, < 2.0)
+    sinatra (1.3.2)
+      rack (~> 1.3, >= 1.3.6)
+      rack-protection (~> 1.2)
+      tilt (~> 1.3, >= 1.3.3)
     tilt (1.3.3)
 
 PLATFORMS
@@ -31,4 +40,4 @@ PLATFORMS
 
 DEPENDENCIES
   compass
-  nesta
+  nesta!

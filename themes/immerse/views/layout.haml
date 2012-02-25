@@ -11,7 +11,7 @@
     - local_stylesheet_link_tag('local')
     %link{ :href => "/articles.xml", :rel => "alternate", :type => "application/atom+xml" }
     = haml :analytics, :layout => false
-  %body{ :class => @page.flagged_as?('main-nav-page') && 'main-nav-page' }
+  %body{ :class => body_class }
     %nav#main{ :role => 'navigation' }
       %ul
         %li.header

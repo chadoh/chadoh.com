@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'nesta'
+gem 'nesta', git: 'git://github.com/chadoh/nesta.git'
 gem 'compass'
 
 

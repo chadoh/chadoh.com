@@ -31,6 +31,15 @@ module Nesta
       def ellipse_if_long(text)
         text.split.length > 4 ? "#{text.split.first(4).join(' ')}&hellip;" : text
       end
+      def format_date(date)
+        date.strftime('%-d %b %y')
+      end
+      def body_class
+        @page && @page.metadata('style')
+      end
+      def current_item?(item)
+        request.path.match item.abspath
+      end
     end
 
     # Add new routes here.
