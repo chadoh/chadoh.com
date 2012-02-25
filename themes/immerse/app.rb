@@ -42,6 +42,10 @@ module Nesta
       end
     end
 
+    get '/' do
+      redirect to Nesta::Page.find_articles.first.abspath
+    end
+
     # Add new routes here.
   end
 end
