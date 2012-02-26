@@ -5,18 +5,27 @@
 @import compass/css3/text-shadow
 @import compass/css3/images
 @import compass/css3/columns
+@import compass/css3/box-shadow
 @import url(http://fonts.googleapis.com/css?family=Alegreya:400,700)
 
 // Variables
 
 $content-width: 83%
 
+// grayscale (essentially)
 $tint: #D3D4D8
 $base-color: $tint - #888
 $dark-tint: $tint - #333
 $background-tint: $tint + #222
 $border-color: $tint + #111
 $base-light: lighten($base-color, 50%)
+
+// color (from http://www.colourlovers.com/palette/53148/immersed)
+$page-background: #C4BFD6
+$link: #98AA9C
+$link-visited: #B8C79E
+$link-border: #EAD78A
+$link-highlight: #F1ECCF
 
 $h1-scale: 2.18
 $h2-scale: 1.64
@@ -27,8 +36,27 @@ $default-transition-duration: 500ms
 
 // Mixins
 
-@mixin dark-tint-text
+=dark-tint-text
   color: $dark-tint
+
+=default-links
+  a
+    color: $link
+    +border-radius(0.3em)
+    display: inline-block
+    padding: 0 2px
+    &:visited
+      color: $link-visited
+    &:hover, &:focus
+      outline: none
+      background-color: $link-highlight
+      margin: -1px
+      border: 1px solid $link-border
+      color: $link
+    &:active
+      background-image: url(/immerse/images/lines.png)
+      +box-shadow(0 0 3px $page-background inset)
+
 
 // Reset
 
@@ -65,6 +93,7 @@ body
   font: $base-font Cambria, Georgia, sans-serif
   line-height: $vertical-rhythm
   color: $base-color
+  background: transparent url(/immerse/images/texture.png) fixed
 
 h1, h2, h3, h4
   font-family: Alegreya, Georgia, sans-serif
@@ -91,11 +120,10 @@ ul
 
 blockquote
   margin: $base-vertical-margin 0
-  border-left: 0.5em solid $tint
+  border-left: 1px solid $tint
   padding-left: 1em
-  
-  font-style: italic
-  
+  color: lighten($base-color, 8%)
+
 pre
   padding: ($vertical-rhythm / 2) 1em
   overflow: auto
@@ -110,7 +138,7 @@ nav#main
   margin-bottom: 1em
   +clearfix
   line-height: 2.5em
-  font-size: 2em
+  font-size: 1.5em
   text-align: center
   border-bottom: 1px solid transparent
   +transition
@@ -137,12 +165,13 @@ nav#main
     float: left
   li
     +horizontal-list-item
-    width: 18%
+    width: 15%
     padding: 0
     &.feed
       float: right
-      background-color: lighten($base-color, 67%)
+      background: transparent url(/immerse/images/lines.png)
     &.header
+      width: 20%
       min-width: 6.5em
   a
     text-decoration: none
@@ -152,13 +181,13 @@ nav#main
     border: 1px solid transparent
     border-width: 0 1px
     +transition
-    &:hover
+    &:hover, &:focus
       border-color: $base-color
       color: $base-color
   li.current a
     color: $base-color
 
-  &:hover
+  &:hover, &:focus
     border-bottom: 1px solid $base-color
 
 #container
@@ -188,10 +217,10 @@ nav#main
         z-index: 1
         &:first-child
           left: 0
-          +background-image(linear-gradient(left, rgba(white, 1), rgba(255, 255, 255, 0)))
+          //+background-image(linear-gradient(left, rgba(white, 1), rgba(255, 255, 255, 0)))
         &:last-child
           right: 0
-          +background-image(linear-gradient(right, rgba(white, 1), rgba(255, 255, 255, 0)))
+          //+background-image(linear-gradient(right, rgba(white, 1), rgba(255, 255, 255, 0)))
       #column-wrap
         width: 100%
         height: 100%
@@ -209,6 +238,8 @@ nav#main
     float: right
 
   #footer
+    +default-links
+
     font-size: 0.75em
     clear: both
     padding: 0 1em
@@ -219,7 +250,7 @@ nav#main
     p
       margin: 0
       padding: 1em 0
-    &:hover
+    &:hover, &:focus
       border-color: $base-color
 
   #article-titles
@@ -236,14 +267,14 @@ nav#main
             content: '('
           &:after
             content: ')'
-        &:hover
+        &:hover, &:focus
           .date
             +dark-tint-text
         a
           color: $base-light
           text-decoration: none
           +transition
-        &:hover, &.current
+        &:hover, &.current, &:focus
           a
             color: $base-color
         &.current
@@ -273,6 +304,8 @@ body
     @include dark-tint-text
 
 #content
+  +default-links
+
   h2
     text-shadow: 0 1px 0 $tint + #333
 
@@ -320,7 +353,7 @@ body
 
   p.read_more
     @include adjust-font-size(0.909, 0, 0)
-  
+
   .categories
     margin-left: -1em
     margin-right: -1em
@@ -339,3 +372,8 @@ body
     padding-left: 2%
   ul#dsq-comments
     margin-left: 0
+  #dsq-global-toolbar
+    a
+      background-color: transparent
+      border: none
+      margin: 0
