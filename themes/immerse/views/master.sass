@@ -227,9 +227,8 @@ nav#main
         overflow-x: scroll
         #columns
           padding: 0 12px
-          //width: 1952px
-          //+column-count(6)
-          //+column-gap(50px)
+          +column-count(1)
+          +column-gap(50px)
           p
             text-align: justify
 
@@ -313,13 +312,11 @@ body
   ul
     margin-left: 1.5em
 
-  img
+  .media, img
     max-width: 100%
     margin-bottom: $base-vertical-margin
+    border: none
 
-  code,
-  pre
-    background-color: $background-tint
   code
     padding: 1px 3px
   pre
