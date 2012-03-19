@@ -1,0 +1,107 @@
+Date: 18 March 2012
+
+# Dear Internet: Please make these things
+
+If I had infinite time, I would work on these things because
+they'd be sha-weeet. But I have finite time. So maybe you can make them
+exist for me? (I would totally be a contributor on [Github][1].) They're kind
+of art pieces that have arguably little utility but would be fun, simple
+projects that would look great in a portfolio.
+
+  [1]: https://github.com
+
+## umop apisdn  
+_difficulty: 1 weekend  
+probable technologies: [Sinatra][2], [Heroku][3], HTML(5), CSS(3), Photoshop_
+
+In Chapter 7 of [Why's (Poignant) Guide to Ruby][4], Blixy the cat
+demonstrates a program that turns text upside-down (about 1/4 of the way
+down, right after the giant rabbit-thing). There are already websites
+that turn text upside-down, but not in as a charmingly low-tech way. I'd
+like to see a very simple web app with a focus on good, [Why-inspired
+design][5] and clean URLs. Maybe add a little bit to Blixy's version of the
+program (like, maybe swap '?' and '¿' and those sorts of things), but
+don't invert everything like [these ad-ridden over-achievers][6].
+
+  [2]: http://www.sinatrarb.com/
+  [3]: http://www.heroku.com/
+  [4]: http://mislav.uniqpath.com/poignant-guide/book/chapter-7.html
+  [5]: http://tryruby.org/
+  [6]: http://www.fliptext.org/
+
+## Nonlinear Conversation  
+_difficulty: 1 month  
+probable technologies: [a fancy db][7], [Node.js][8], [Spine.js][9], [Jasmine][10]_
+
+It occurs to me, you know, that conversation is only one dimensional
+because of a limitation of the medium. Air waves travel from me to you,
+you ingest them, you send some back to me. What if we could hear and
+speak in two dimensions? Our conversations could flow out in multiple
+directions, branches overlapping, make tapestries.
+
+So basically, I think it'd be really neat to have an IM client that by
+default was one dimensional, all new replies just piled on the stack.
+But I have the ability to drag the replies around, reorder them, make
+their visual representation more accurately match the thought-flow. Make
+one node branch out into two or more new ones. IMs are so perfectly
+suited to this.
+
+Have you ever had a split in an IM conversation, when you end up
+discussing two things at once? That's an obvious use-case. When either
+(or any) of the participants relocate a node, both see it.
+
+This could be a really beautiful, interesting examination of how the
+brain organizes thoughts. Do shy away, though, from adding extra and
+silly features, like customizable colors & shapes or anything like that.
+
+  [7]: http://pragprog.com/book/rwdata/seven-databases-in-seven-weeks
+  [8]: http://nodejs.org/
+  [9]: http://stackoverflow.com/questions/5112899/knockout-js-vs-backbone-js-vs
+  [10]: http://stackoverflow.com/questions/7047419/qunit-vs-jasmine
+
+## Music Suggestion Service Suggestion Service
+_difficulty: 1 month  
+probable technologies: [a database][11], [Rails][12], [Heroku][13] and optionally lots of
+JavaScript in the form of a Chrome extension_
+
+Oh, let's see: [iTunes][14], [Google Music][15], [Pandora][16],
+[Spotify][17], [Rdio][18], [SoundCloud][19], [Noise Trade][20],
+[ReverbNation][21], [Moog Music][22], [GrooveShark][23],
+[thesixtyone][24], [Last.fm][25], [MySpace][26], [Facebook][27],
+[YouTube][28], [Bandcamp][29], etc, etc. There are so friggin' many of
+these friggin' things. All with their unique take on the future of
+music.
+
+I want a service to give me a tour of each of them. It's obviously a
+little tongue-in-cheek. But also super useful (both for we people trying
+to navigate all of these, and as a commentary (DO WE REALLY NEED THIS
+MANY WHY ARE THEY STILL GETTING VC FUNDING)). Tell me if it's a
+music-exploration service, or a place where I store my music, or both,
+and how do bands post their own music, and how do fans navigate it, and
+how are artists compensated, and how does the company make money. All of
+this information and more could be crowd-sourced. Heck, maybe you could
+even parse Wikipedia to get started. And a simple directory of all of
+this information would be a great place to start, but I think the
+biggest value would be in a browser extension that brought me to each
+new service with a simple click. And a thumbs-up and thumbs-down button
+for each service.
+
+  [11]: http://pragprog.com/book/rwdata/seven-databases-in-seven-weeks
+  [12]: http://pragprog.com/book/rails4/agile-web-development-with-rails
+  [13]: http://www.heroku.com/
+  [14]: http://www.apple.com/itunes/
+  [15]: https://play.google.com/music
+  [16]: http://www.pandora.com/
+  [17]: http://www.spotify.com/
+  [18]: http://www.rdio.com/
+  [19]: http://soundcloud.com/
+  [20]: http://noisetrade.com/
+  [21]: http://www.reverbnation.com/
+  [22]: http://www.moogmusic.com/
+  [23]: http://grooveshark.com/
+  [24]: http://www.thesixtyone.com/
+  [25]: http://www.last.fm/
+  [26]: http://www.myspace.com/
+  [27]: http://www.facebook.com/
+  [28]: http://www.youtube.com/
+  [29]: http://bandcamp.com/

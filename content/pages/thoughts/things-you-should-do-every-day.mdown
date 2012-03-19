@@ -1,0 +1,14 @@
+date: 6 March 2015
+flags: draft
+
+# Things you should do Every Day
+
+* Write [750 words][1]
+* Learn [a language or two][2]
+* [Professional development][3]
+* [Personal Development][4]
+* (of [several][5] [kinds][6]
+* Spend time with [family][7]
+* Check in with [friends][8]
+
+When's a fellow supposed to fit in an 8-hour work day?
