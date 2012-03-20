@@ -59,7 +59,7 @@ silly features, like customizable colors & shapes or anything like that.
   [9]: http://stackoverflow.com/questions/5112899/knockout-js-vs-backbone-js-vs
   [10]: http://stackoverflow.com/questions/7047419/qunit-vs-jasmine
 
-## Music Suggestion Service Suggestion Service
+## A Suggestion Service for Music Suggestion Services
 _difficulty: 1 month  
 probable technologies: [a database][11], [Rails][12], [Heroku][13] and optionally lots of
 JavaScript in the form of a Chrome extension_
