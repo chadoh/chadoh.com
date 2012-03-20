@@ -2,113 +2,111 @@ Style: main-nav-page
 
 %h1 Past
 
-  :markdown
-    I am a Problem Child
-    --------------------
+:markdown
+  I am a Problem Child
+  --------------------
 
-    In much of my recent spare time, I have worked on [a website for
-    Problem Child Literary Magazine][1]. Originally conceived as a simple
-    way to help the editors of the publication, it has grown into an
-    impressive system that could easily be generalized to fit the
-    publication process of many small writing communities and publications.
+  In much of my recent spare time, I have worked on [a website for
+  Problem Child Literary Magazine][1]. Originally conceived as a simple
+  way to help the editors of the publication, it has grown into an
+  impressive system that could easily be generalized to fit the
+  publication process of many small writing communities and publications.
 
-      [1]: http://problemchildmag.com
+    [1]: http://problemchildmag.com
 
-    Keep reading to learn about one of the more complex and innovative
-    bits of functionality that I've worked on.
+  Keep reading to learn about one of the more complex and innovative
+  bits of functionality that I've worked on.
 
-    -----
+  Check out [the staff list for Problem Child's first website-aided
+  publication][2]:
 
-    Check out [the staff list for Problem Child's first website-aided
-    publication][2]:
+    [2]: http://problemchildmag.com/magazines/spring-2011/staff
 
-      [2]: http://problemchildmag.com/magazines/spring-2011/staff
+  ![Image of the staff list for the Spring 2011 issue](/attachments/staff-list.png)
 
-    ![Image of the staff list for the Spring 2011 issue][/images/staff-list.png]
+  Far from being a simple list, though, you're actually looking at the
+  very heart of how this website works. Look at what it looks like for
+  the editor:
 
-    Far from being a simple list, though, you're actually looking at the
-    very heart of how this website works. Look at what it looks like for
-    the editor:
+  ![Image of the staff list for the Spring 2011 issue as seen by the editor](/attachments/staff-list-for-editor.png)
 
-    ![Image of the staff list for the Spring 2011 issue][/images/staff-list-for-editor.png]
+  Here you can see several of my [design][3] principles at work.
 
-    Here you can see several of my [design][3] principles at work.
+  * I think that "administrative interfaces" should be avoided if at all
+  possible. On this page, the Editor can add new positions and choose
+  [what abilities][4] people in that role will have. Then they can add people
+  to that role. The abilities for the role are the little badges in the
+  top right of the position, which expand and give helpful hint text
+  when moused-over. And who's "the Editor" who can do and see all this?
+  Anyone with the "orchestrates" ability for the given magazine or an
+  adjacent magazine (which shows up as the little orange "o" badge here;
+  you can see that the Editor and the Co-Editor have this ability for
+  the Spring 2011 issue).
+  * CSS3 and Unicode characters are way easier
+  and more flexible than images. [The badges][5] are [designed entirely with
+  CSS3][6], even the slide-out-on-hover action that reveals the whole word.
+  And ⚙ and ✕ are used all over the site for "edit" and "delete".
+  Indeed, you can see that the Editor has many options for
+  adding/removing people from positions, as well as adding and removing
+  pages. And page titles can even be changed simply by clicking on them
+  and changing them.
+  * I only show you options if they're relevant to
+  you. If you technically have the ability to see a magazine's meetings,
+  but there are none scheduled yet, the "Meetings" option at the top
+  won't show up.
+  * I like [clean URLs][7].
 
-    * I think that "administrative interfaces" should be avoided if at all
-    possible. On this page, the Editor can add new positions and choose
-    [what abilities][4] people in that role will have. Then they can add people
-    to that role. The abilities for the role are the little badges in the
-    top right of the position, which expand and give helpful hint text
-    when moused-over. And who's "the Editor" who can do and see all this?
-    Anyone with the "orchestrates" ability for the given magazine or an
-    adjacent magazine (which shows up as the little orange "o" badge here;
-    you can see that the Editor and the Co-Editor have this ability for
-    the Spring 2011 issue).
-    * CSS3 and Unicode characters are way easier
-    and more flexible than images. [The badges][5] are [designed entirely with
-    CSS3][6], even the slide-out-on-hover action that reveals the whole word.
-    And ⚙ and ✕ are used all over the site for "edit" and "delete".
-    Indeed, you can see that the Editor has many options for
-    adding/removing people from positions, as well as adding and removing
-    pages. And page titles can even be changed simply by clicking on them
-    and changing them.
-    * I only show you options if they're relevant to
-    you. If you technically have the ability to see a magazine's meetings,
-    but there are none scheduled yet, the "Meetings" option at the top
-    won't show up.
-    * I like [clean URLs][7].
+  So with a page that's just a little more cluttered than yours & mine,
+  the editors of a magazine (anyone with the 'orchestrates' ability) can
+  give everyone very granular abilities for that magazine and the ones
+  before and after. This is [how permissions for the whole site work][8]. You
+  & I cannot see any meetings because no one has added us to a position
+  with the 'views' ability for any magazines. 
 
-    So with a page that's just a little more cluttered than yours & mine,
-    the editors of a magazine (anyone with the 'orchestrates' ability) can
-    give everyone very granular abilities for that magazine and the ones
-    before and after. This is [how permissions for the whole site work][8]. You
-    & I cannot see any meetings because no one has added us to a position
-    with the 'views' ability for any magazines. 
+    [3]: http://www.inspireux.com/2010/01/20/design-is-not-just-what-it-looks-like-and-feels-like-design-is-how-it-works/
+    [4]: https://github.com/chadoh/pcmag/blob/master/db/migrate/20110926114929_create_abilities.rb
+    [5]: https://github.com/chadoh/pcmag/blob/master/app/views/positions/_position.html.haml#L5
+    [6]: https://github.com/chadoh/pcmag/blob/master/app/assets/stylesheets/application.css.sass#L589
+    [7]: https://github.com/chadoh/pcmag/blob/master/config/routes.rb#L51
+    [8]: https://github.com/chadoh/pcmag/blob/master/app/models/person.rb#L127
 
-      [3]: http://www.inspireux.com/2010/01/20/design-is-not-just-what-it-looks-like-and-feels-like-design-is-how-it-works/
-      [4]: https://github.com/chadoh/pcmag/blob/master/db/migrate/20110926114929_create_abilities.rb
-      [5]: https://github.com/chadoh/pcmag/blob/master/app/views/positions/_position.html.haml#L5
-      [6]: https://github.com/chadoh/pcmag/blob/master/app/assets/stylesheets/application.css.sass#L589
-      [7]: https://github.com/chadoh/pcmag/blob/master/config/routes.rb#L51
-      [8]: https://github.com/chadoh/pcmag/blob/master/app/models/person.rb#L127
+  I set it up this way so that positions can have any silly name the
+  staff dream up. There is an old film-themed issue where the Editor is
+  instead called the Director; I wanted to model that correctly. This
+  ended up requiring more database lifting than I originally expected:
 
-    I set it up this way so that positions can have any silly name the
-    staff dream up. There is an old film-themed issue where the Editor is
-    instead called the Director; I wanted to model that correctly. This
-    ended up requiring more database lifting than I originally expected:
+  * A [Person has_many Positions through Roles][9]
+  * A [Position belongs_to a Magazine][10]
+  * A [Position has_many Abilities through PositionAbilities][11]
 
-    * A [Person has_many Positions through Roles][9]
-    * A [Position belongs_to a Magazine][10]
-    * A [Position has_many Abilities through PositionAbilities][11]
+  This means I need to join across 6 tables in order to [figure out what
+  any visitor is allowed to see][12] for any page! Surprisingly, this lead to
+  faster load times than an older system I devised when first creating
+  the site (before Magazines were even an entity).
 
-    This means I need to join across 6 tables in order to [figure out what
-    any visitor is allowed to see][12] for any page! Surprisingly, this lead to
-    faster load times than an older system I devised when first creating
-    the site (before Magazines were even an entity).
+    [9]: https://github.com/chadoh/pcmag/blob/master/app/models/person.rb#L45
+    [10]: https://github.com/chadoh/pcmag/blob/master/app/models/position.rb#L14
+    [11]: https://github.com/chadoh/pcmag/blob/master/app/models/position.rb#L18
+    [12]: https://github.com/chadoh/pcmag/blob/master/app/helpers/application_helper.rb#L54
 
-      [9]: https://github.com/chadoh/pcmag/blob/master/app/models/person.rb#L45
-      [10]: https://github.com/chadoh/pcmag/blob/master/app/models/position.rb#L14
-      [11]: https://github.com/chadoh/pcmag/blob/master/app/models/position.rb#L18
-      [12]: https://github.com/chadoh/pcmag/blob/master/app/helpers/application_helper.rb#L54
+  I really like this system I came up with. There is no fancy admin
+  interface where an editor can promote people to staff. Just the staff
+  list that everyone sees. And, in keeping with the rules of the
+  magazine, a person who can see who's submitting for the next magazine
+  (someone with the 'communicates' ability) can't necessarily see who
+  submitted for the last one. It also makes it easy to [list positions
+  that people held in the past][13] (Swati will have more listed when she has
+  time to fill in information for old magazines (yes, one of the guiding
+  factors for the staff-list-based permission system was to allow old
+  issues of the magazine to be back-filled, which is now possible; the
+  editors just need time)).
 
-    I really like this system I came up with. There is no fancy admin
-    interface where an editor can promote people to staff. Just the staff
-    list that everyone sees. And, in keeping with the rules of the
-    magazine, a person who can see who's submitting for the next magazine
-    (someone with the 'communicates' ability) can't necessarily see who
-    submitted for the last one. It also makes it easy to [list positions
-    that people held in the past][13] (Swati will have more listed when she has
-    time to fill in information for old magazines (yes, one of the guiding
-    factors for the staff-list-based permission system was to allow old
-    issues of the magazine to be back-filled, which is now possible; the
-    editors just need time)).
+  I would love to refactor some of my views with [decorators][14]/[presenters][15],
+  but I need to prioritize the [long list of things I'd like to do next][16].
+  And take a break to record some [songs][17].
 
-    I would love to refactor some of my views with [decorators][14]/[presenters][15],
-    but I need to prioritize the [long list of things I'd like to do next][16].
-    And take a break to record some [songs][17].
-
-      [13]: http://problemchildmag.com/people/swati-rajiv-prasad
-      [14]: http://railscasts.com/episodes/286-draper
-      [15]: http://railscasts.com/episodes/287-presenters-from-scratch
-      [16]: https://www.pivotaltracker.com/projects/118546
-      [17]: http://www.facebook.com/theRoaringKittens?sk=videos
+    [13]: http://problemchildmag.com/people/swati-rajiv-prasad
+    [14]: http://railscasts.com/episodes/286-draper
+    [15]: http://railscasts.com/episodes/287-presenters-from-scratch
+    [16]: https://www.pivotaltracker.com/projects/118546
+    [17]: http://www.facebook.com/theRoaringKittens?sk=videos

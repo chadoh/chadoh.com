@@ -38,7 +38,7 @@ module Nesta
         @page && @page.metadata('style')
       end
       def current_item?(item)
-        request.path.match item.abspath
+        request.path.match item.heading.downcase
       end
     end
 
