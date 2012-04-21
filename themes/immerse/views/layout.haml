@@ -6,7 +6,7 @@
       %meta{ "name" => "description", "content" => @description }
     - if @keywords
       %meta{ "name" => "keywords", "content" => @keywords }
-    %title= @title
+    %title= "#{@page.heading} - chadoh"
     %link{ :href => "/css/master.css", :media => "screen", :rel => "stylesheet", :type => "text/css" }
     - local_stylesheet_link_tag('local')
     %link{ :href => "/articles.xml", :rel => "alternate", :type => "application/atom+xml" }

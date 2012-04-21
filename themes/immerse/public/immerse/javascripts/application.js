@@ -42,6 +42,8 @@ function addColumn() {
 }
 
 $(function(){
-  setColCountProp();
-  adjustHeight();
+  if(! $('body').hasClass('no-columns') ){
+    setColCountProp();
+    adjustHeight();
+  }
 });

@@ -1,11 +1,7 @@
 #content
   #column-wrap-wrap
-    .border
-
     #column-wrap
       #columns
-        -#- if @page.date
-          .date= format_date(@page.date)
 
         ~ @page.to_html(self)
 
@@ -21,8 +17,6 @@
             - @page.categories.each do |category|
               %a{ :href => category.abspath }= category.heading
 
-    .border
-  -#= haml :social, :layout => false
   = haml :comments, :layout => false
 
 
