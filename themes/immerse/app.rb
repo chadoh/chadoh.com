@@ -35,7 +35,10 @@ module Nesta
         date.strftime('%-d %b %y')
       end
       def body_class
-        @page && @page.metadata('style')
+        unless !!@body_class
+          @body_class = @page && @page.metadata('style')
+          @body_class += ' no-sidebar' if @page.metadata('sidebar') == 'none'
+        end
       end
       def current_item?(item)
         request.path.match item.heading.downcase

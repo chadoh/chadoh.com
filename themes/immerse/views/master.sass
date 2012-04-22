@@ -197,89 +197,93 @@ nav#main
 
     font-size: 0.909em
 
-  #content, #sidebar
-    float: left
-    padding: 0
-    margin: 0
+#content, #sidebar
+  float: left
+  padding: 0
+  margin: 0
 
+#content
+  width: $content-width - 6%
+  margin-left: 3%
+  #column-wrap-wrap
+    position: relative
+    .border
+      height: 100%
+      width:  10px
+      position: absolute
+      top: 0
+      z-index: 1
+      &:first-child
+        left: 0
+        //+background-image(linear-gradient(left, rgba(white, 1), rgba(255, 255, 255, 0)))
+      &:last-child
+        right: 0
+        //+background-image(linear-gradient(right, rgba(white, 1), rgba(255, 255, 255, 0)))
+    #column-wrap
+      width: 100%
+      height: 100%
+      overflow-x: scroll
+      #columns
+        padding: 0 12px
+        +column-count(1)
+        +column-gap(50px)
+        p
+          text-align: justify
+
+#sidebar
+  width: 100% - $content-width
+  float: right
+
+body.no-sidebar #container
   #content
-    width: $content-width - 6%
-    margin-left: 3%
-    #column-wrap-wrap
-      position: relative
-      .border
-        height: 100%
-        width:  10px
-        position: absolute
-        top: 0
-        z-index: 1
-        &:first-child
-          left: 0
-          //+background-image(linear-gradient(left, rgba(white, 1), rgba(255, 255, 255, 0)))
-        &:last-child
-          right: 0
-          //+background-image(linear-gradient(right, rgba(white, 1), rgba(255, 255, 255, 0)))
-      #column-wrap
-        width: 100%
-        height: 100%
-        overflow-x: scroll
-        #columns
-          padding: 0 12px
-          +column-count(1)
-          +column-gap(50px)
-          p
-            text-align: justify
+    width: 94%
 
-  #sidebar
-    width: 100% - $content-width
-    float: right
+#footer
+  +default-links
 
-  #footer
-    +default-links
+  font-size: 0.75em
+  clear: both
+  padding: 0 1em
+  border-top: 1px solid #fff
+  border-color: rgba(255,255,255,0)
+  text-align: center
+  +transition
+  p
+    margin: 0
+    padding: 1em 0
+  &:hover, &:focus
+    border-color: $base-color
 
-    font-size: 0.75em
-    clear: both
-    padding: 0 1em
-    border-top: 1px solid #fff
-    border-color: rgba(255,255,255,0)
-    text-align: center
-    +transition
-    p
-      margin: 0
-      padding: 1em 0
-    &:hover, &:focus
-      border-color: $base-color
-
-  #article-titles
-    padding-right: 5%
-    ol
-      +no-bullets
-      margin-left: 1.5em
-      li
+#article-titles
+  padding-right: 5%
+  ol
+    +no-bullets
+    margin-left: 1.5em
+    li
+      .date
+        color: transparent
+        +transition
+        text-indent: 1em
+        &:before
+          content: '('
+        &:after
+          content: ')'
+      &:hover, &:focus
         .date
-          color: transparent
-          +transition
-          text-indent: 1em
-          &:before
-            content: '('
-          &:after
-            content: ')'
-        &:hover, &:focus
-          .date
-            +dark-tint-text
+          +dark-tint-text
+      a
+        color: $base-light
+        text-decoration: none
+        +transition
+      &:hover, &.current, &:focus
         a
-          color: $base-light
-          text-decoration: none
-          +transition
-        &:hover, &.current, &:focus
-          a
-            color: $base-color
-        &.current
-          list-style-type: disc
-          .date
-            +dark-tint-text
-    h2
-      @include adjust-font-size(1, 0, 0)
+          color: $base-color
+      &.current
+        list-style-type: disc
+        .date
+          +dark-tint-text
+  h2
+    @include adjust-font-size(1, 0, 0)
 
 // The visuals
 

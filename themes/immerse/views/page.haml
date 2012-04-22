@@ -20,4 +20,6 @@
   = haml :comments, :layout => false
 
 
-= haml :sidebar, :layout => false
+- unless @page.metadata('sidebar') == 'none'
+  #sidebar
+    %section#article-titles= article_titles(latest_articles)
