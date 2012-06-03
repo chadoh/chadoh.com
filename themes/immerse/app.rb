@@ -49,6 +49,14 @@ module Nesta
       redirect to Nesta::Page.find_articles.first.abspath
     end
 
+    require 'pony'
+    post '/contact' do
+      Pony.mail :to => ENV['NESTA_AUTHOR__EMAIL'],
+                :from => params[:from],
+                :subject => "#{Nesta::Config.title}: contact from #{params[:from]}",
+                :body => params[:body]
+    end
+
     # Add new routes here.
   end
 end

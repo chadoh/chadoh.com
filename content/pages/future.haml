@@ -1,9 +1,16 @@
-Flags: draft
-Style: main-nav-page
+Flags: draft, no-comments
+Style: main-nav-page no-columns
+Sidebar: none
 
 %h1 Future
 
-:markdown
-  If you foresee us communicating in the future, don't delay! Make that happen right now.
+%p I could help you build a better one.
 
-  Or maybe you see a future me receiving some of your money. You can make that happen, too.
+%form{ :method => 'post', :action => '/contact' }
+  %label{ :for => 'from' } From
+  %input{ :type => 'text', :id => 'from', :name => 'from' }
+
+  %label{ :for => 'body' } Your Message
+  %input{ :type => 'text', :id => 'body', :name => 'body' }
+
+  %input{ :type => 'submit' }
