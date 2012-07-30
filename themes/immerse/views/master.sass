@@ -167,6 +167,7 @@ nav#main
   li
     +horizontal-list-item
     width: 15%
+    min-width: 5em
     padding: 0
     &.feed
       float: right
@@ -182,7 +183,7 @@ nav#main
     border: 1px solid transparent
     border-width: 0 1px
     +transition
-    &:hover, &:focus
+    &:hover, &:focus, &:active
       border-color: $base-color
       color: $base-color
   li.current a
@@ -208,30 +209,30 @@ nav#main
 #content
   width: $content-width - 6%
   margin-left: 3%
-  #column-wrap-wrap
-    position: relative
-    .border
-      height: 100%
-      width:  10px
-      position: absolute
-      top: 0
-      z-index: 1
-      &:first-child
-        left: 0
-        //+background-image(linear-gradient(left, rgba(white, 1), rgba(255, 255, 255, 0)))
-      &:last-child
-        right: 0
-        //+background-image(linear-gradient(right, rgba(white, 1), rgba(255, 255, 255, 0)))
-    #column-wrap
-      width: 100%
-      height: 100%
-      overflow-x: scroll
-      #columns
-        padding: 0 12px
-        +column-count(2)
-        +column-gap(50px)
-        p
-          text-align: justify
+#column-wrap-wrap
+  position: relative
+  .border
+    height: 100%
+    width:  10px
+    position: absolute
+    top: 0
+    z-index: 1
+    &:first-child
+      left: 0
+      //+background-image(linear-gradient(left, rgba(white, 1), rgba(255, 255, 255, 0)))
+    &:last-child
+      right: 0
+      //+background-image(linear-gradient(right, rgba(white, 1), rgba(255, 255, 255, 0)))
+#column-wrap
+  width: 100%
+  height: 100%
+  overflow-x: scroll
+#columns
+  padding: 0 12px
+  +column-count(2)
+  +column-gap(50px)
+  p
+    text-align: justify
 
 #sidebar
   width: 100% - $content-width
@@ -394,3 +395,29 @@ body.nil
   #container #content
     width: 100%
     margin: 0
+
+@media only screen and (max-width: 625px)
+  nav#main
+    li.header
+      width: 100%
+    li
+      width: 33%
+      a
+        border-top-width: 1px
+
+  #content, #sidebar
+    float: none
+    width: 100%
+
+  #sidebar
+    border-top: 1px dotted $base-light
+    margin-top: 1.5em
+    padding-top: 1.5em
+
+  #columns
+    +column-count(1)
+    padding: 0
+  #content
+    margin: 0
+  #column-wrap-wrap
+    margin: 0 3%

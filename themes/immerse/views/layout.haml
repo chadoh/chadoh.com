@@ -11,6 +11,7 @@
     - local_stylesheet_link_tag('local')
     %link{ :href => "/articles.xml", :rel => "alternate", :type => "application/atom+xml" }
     = haml :analytics, :layout => false
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
   %body{ :class => body_class }
     %nav#main{ :role => 'navigation' }
       %ul

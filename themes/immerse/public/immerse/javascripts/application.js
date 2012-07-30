@@ -42,7 +42,7 @@ function addColumn() {
 }
 
 $(function(){
-  if(! $('body').hasClass('no-columns') ){
+  if(! $('body').hasClass('no-columns') && ($(window).w() > 625)){
     setColCountProp();
     adjustHeight();
   }
