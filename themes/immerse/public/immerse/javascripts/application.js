@@ -8,13 +8,13 @@ jQuery.fn.extend({
 
 function setColCountProp() {
   cols = $('#columns');
-  if(cols.css('column-count') == 1)
+  if(cols.css('column-count') == 2)
     colCountProp = 'column-count';
-  else if(cols.css('-webkit-column-count') == 1)
+  else if(cols.css('-webkit-column-count') == 2)
     colCountProp = '-webkit-column-count';
-  else if(cols.css('-moz-column-count') == 1)
+  else if(cols.css('-moz-column-count') == 2)
     colCountProp = '-moz-column-count';
-  else if(cols.css('-o-column-count') == 1)
+  else if(cols.css('-o-column-count') == 2)
     colCountProp = '-o-column-count';
 }
 

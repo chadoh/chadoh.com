@@ -1,0 +1,75 @@
+Date: 2012-07-28
+
+# Remember To Press Record
+
+This past Tuesday, I started teaching a course on Web Devolopment to
+people who consider themselves non-technical and "not computer people".
+My course is called [Hello Interweb][hello].
+
+The first class went really well! We had six people there in person, and
+I fired up a [Google+ Hangout][g+] for [the friend][davey] who couldn't
+make the drive.
+
+And I had a grand plan for this G+ Hangout: I would record it! You can
+do a "Hangout on Air", and the Hangout is recorded to
+[YouTube][youtube]. This would be great, I thought! Then people who
+didn't make it to the class in person would at least be able to catch up
+on it afterward.
+
+But managing in-person participants is hard enough; trying to juggle a
+G+ Hangout along with it was crazy. [The friend][davey] agreed. He
+couldn't hear much.
+
+So I had a second class, entirely within a G+ Hangout, today. And it was
+great! Three people joined, and were surprised to learn they were being
+recorded but agreed to it and made the material super fun to go through.
+We created a wonderful learning material together!
+
+---
+
+A quick aside:
+
+I remember holding video cameras when I was young, watching the world
+through a black & white peep hole (and later through a tiny color
+screen). "Are you filming me?" people would ask. And if they didn't know
+about the little red light, then you could tell them you weren't, even
+if you were. Because all that separated _hard documentation_ from
+_faulty memories_ was a small red button.
+
+---
+
+Just because you're holding a camera doesn't mean it's recording.
+
+You might have to teach that to a child in a less-developed country, as
+you teach them to operate this incredible new technology, this
+incredible new opportunity in their hands.
+
+And in the more-developed world, we all need to be taught simple lessons
+like that all the time. Because we're holding so many new opportunities
+for the first time ourselves.
+
+It turns out that a Hangout On Air is _not_ on air by default. You must
+press the small red "Start Broadcast" button (in the top right).
+
+So alas! The wonderful class! The participants wore pirate hats and
+scuba gear and tiaras to act out [the play][play], but you cannot see
+it! We were so proud of our performances, but our performances are
+forever only lowly ours; they will grow wavy like old glass and turn to
+dust with our neurons.
+
+(Remember wavy glass? We're a dying breed.)
+
+Don't worry, though, gentle reader. Though Week 1 would have been the
+best class to watch later, we'll capture Week 2 for sure. I know about
+the button now.
+
+And next time I teach the course, I'll be sure to capture Week 1 down in
+a medium that moth & rust do not destroy. It'll be safe & sound on
+[YouTube][youtube]'s immortal servers, preserved better than any
+yearbook for my grandchildren.
+
+  [hello]: http://hellointerweb.com/
+  [g+]: https://plus.google.com/hangouts
+  [davey]: http://vimeo.com/daveyrockwell
+  [youtube]: http://www.youtube.com/
+  [play]: http://hellointerweb.com/the-script
