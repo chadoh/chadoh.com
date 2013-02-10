@@ -9,6 +9,7 @@
     %title= "#{@page.heading} - chadoh"
     %link{ :href => "/css/master.css", :media => "screen", :rel => "stylesheet", :type => "text/css" }
     - local_stylesheet_link_tag('local')
+    %link{ :href => "/immerse/stylesheets/scrollbar.css", :media => "screen", :rel => "stylesheet", :type => "text/css" }
     %link{ :href => "/articles.xml", :rel => "alternate", :type => "application/atom+xml" }
     = haml :analytics, :layout => false
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
