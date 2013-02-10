@@ -46,4 +46,23 @@ $(function(){
     setColCountProp();
     adjustHeight();
   }
+
+  /* fire a `resizeEnd` function when window resizing pauses for >=500ms
+   * from http://stackoverflow.com/a/2996465/249801 */
+  $(window).resize(function() {
+    if(this.resizeTo) clearTimeout(this.resizeTo);
+    this.resizeTo = setTimeout(function() {
+      $(this).trigger('resizeEnd');
+    }, 500);
+  });
+
+  $(window).on('resizeEnd', function(){
+    /* reset to how it was at page load... */
+    cols.css(colCountProp, '2');
+    cols.css( 'width', cols.parent().css('width') );
+
+    /* and readjust the height! */
+    adjustHeight();
+  });
+
 });
