@@ -109,7 +109,7 @@ h3
   font-weight: normal
 h4
   @include adjust-font-size($h4-scale, 2, 0)
-.main-nav-page #content h1
+.main-nav-page .content h1
   display: none
 
 ol,
@@ -201,12 +201,12 @@ nav#main
 
     font-size: 0.909em
 
-#content, #sidebar
+.content, #sidebar
   float: left
   padding: 0
   margin: 0
 
-#content
+.content
   width: $content-width - 6%
   margin-left: 3%
 #column-wrap-wrap
@@ -233,15 +233,26 @@ nav#main
   +column-gap(50px)
   p
     text-align: justify
-.no-columns #columns
-  +column-count(1)
+.no-columns
+  #columns
+    +column-count(1)
+  #column-wrap
+    overflow-x: auto
 
+.fixed-columns
+  > .left
+    width: 48%
+    margin-right: 2%
+    float: left
+  > .right
+    width: 50%
+    float: left
 #sidebar
   width: 100% - $content-width
   float: right
 
 body.no-sidebar #container
-  #content
+  .content
     width: 94%
 
 #footer
@@ -253,12 +264,9 @@ body.no-sidebar #container
   border-top: 1px solid #fff
   border-color: rgba(255,255,255,0)
   text-align: center
-  +transition
   p
     margin: 0
     padding: 1em 0
-  &:hover, &:focus
-    border-color: $base-color
 
 #article-titles
   padding-right: 5%
@@ -310,7 +318,7 @@ body
     font-size: 1em
     @include dark-tint-text
 
-#content
+.content
   +default-links
 
   h2
@@ -392,11 +400,30 @@ body
   +transition-duration(0.8s)
 
 body.nil
-  nav#main, #sidebar, #content h1
+  nav#main, #sidebar, .content h1
     display: none
-  #container #content
+  #container .content
     width: 100%
     margin: 0
+
+.avatar
+  padding: 0.5em
+  display: inline-block
+  border: 1px dashed $tint
+  img
+    margin: 0
+    border-radius: 1em
+#social-links
+  font-size: 3em
+  a, a:visited
+    color: $base-color
+  a:hover
+    background-color: transparent
+    margin: 0
+    border: none
+    color: $link
+  &:active
+    background-image: none
 
 @media only screen and (max-width: 625px)
   nav#main
@@ -408,7 +435,7 @@ body.nil
       a
         border-top-width: 1px
 
-  #content, #sidebar
+  .content, #sidebar
     float: none
     width: 100%
 
@@ -420,7 +447,7 @@ body.nil
   #columns
     +column-count(1)
     padding: 0
-  #content
+  .content
     margin: 0
   #column-wrap-wrap
     margin: 0 3%
