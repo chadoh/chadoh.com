@@ -1,0 +1,71 @@
+Date: 2013-09-09T05:00
+
+# Episode -2: 0xE2? Wtf? Addendum to the MySQL series
+
+Hello, human. You probably learned to count to ten. You probably use 0 to 9 to
+write numbers.
+
+That's great! But there are other ways to do things.
+
+Computers, you've probably heard, store everything as ones and zeros.
+Fortunately, most of the time modern programmers don't have to care about this.
+But character encodings are one of those times when we get pretty close. But
+don't worry! You can totally comprehend this.
+
+So computers learn to count to 2, using only 0 and 1. "Wait, what?" you may
+ask, "How do you count to 2 without a, you know, a '2'?" Great question! But
+consider: you count to ten without a character representing ten! You just put a
+1 in the "tens" column, and a 0 in the "ones" column.
+
+Computers do something similar, but instead of having a tens column, they have
+a "twos" column. So you start counting at one, "1", which is followed by two,
+"10". Only, in binary, we know that "10" means we have one _2_ and zero _1s_.
+So "10", in binary land, means 2! Crazy, right? Can you think of how you'd
+write three in binary?
+
+The thing is, writing binary numbers out as a bunch of ones and zeros is
+terribly painful for humans. And unfortunately, converting binary numbers to
+decimal is a little bit of a bummer sometimes, because math. Specifically, you
+can't double 2 an even number of times to arrive at 10. (2 * 2 = 4, * 2 = 8, *
+2 = 16).
+
+Writing binary as _base 16_ numbers is actually really nice. At least, the
+brilliant minds that were programming back when computers first existed all
+agreed, and we've all gone on learning it.
+
+Base 16 means you have a ones column, and then you have a sixteens column.
+That's right! And just as base 2 (binary) requires 2 characters to write out
+all the numbers (0 and 1) and base 10 requires 10 (0 to 9), base 16 requires
+16. But we don't have single characters for numbers bigger than 9. The
+solution, said brilliant programmers decided, is to use A to F. "A" in base 16
+means 10, on up to "F" meaning 15. (If you're wondering what happened to the
+number 16 and why we didn't include G, think again about how we write ten in
+base ten).
+
+Base 16 is also called "hexadecimal", which people often shorten to "hex" to
+save time. When you want to write hex numbers but don't want to give a big long
+explanation beforehand ("Watch out, everyone, this looks like ten but is
+actually sixteen because it's hexadecimal!"), you can prefix your number with
+"0x".
+
+So! `0xE2` means "the hexadecimal number E2". "E2" means you have E (that is,
+14) sixteens, and 2 ones. So this number in familiar Decimal notation would be
+14\*16 + 2 = 226. Written out in binary it would be... friggin' annoying. 1110
+0010. (A string of 8 zeros or ones (that is, a string of 8 _bits_) is called a
+_byte_.)
+
+Now, you're correct, these are _just numbers_. They're not letters. `0xE2`
+does, in a very real, mathy sense, mean 226. But it does not mean "â" (or "ç"
+or "Z" or "∆"). The only thing that makes it mean some-character is that all we
+humans agree on what letter it ought to stand for. We map numbers, like 226, to
+letters. And we call these mappings "encodings".
+
+Numbers smaller than 127 map to the same characters in basically all encodings,
+and are called ASCII. For numbers bigger than that, you _must_ know what
+encoding you're working with. Because everyone in the world used to use
+different ones.
+
+Here's what we call [Latin1](http://ascii-code.com/). And if you're curious to
+keep learning more, I highly recommend [Joel Spolsky's article on
+Unicode](http://www.joelonsoftware.com/articles/Unicode.html), which is where I
+first learned about the terrible, ever-present world of encodings.

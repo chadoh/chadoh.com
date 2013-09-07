@@ -1,0 +1,210 @@
+Date: 2013-09-09T05:01
+
+# The Revenge of MySQL, Episode 1: Extravagant Gymnastics for a Small Data Problem
+
+## Episode -1: Background
+
+Consider thee the Right Single Quotation Mark (the "smart quote" used in words
+like "it’s"):
+
+<table class="table table-bordered">
+  <tr>
+    <td rowspan="2" style="vertical-align:middle">’</td>
+    <th>UTF-8</th>
+    <th>Latin1</th>
+  </tr>
+  <tr>
+    <td><code>0xE2 0x80 0x99</code></td>
+    <td><code>0x92</code></td>
+  </tr>
+</table>
+
+Notice that in the "Latin1" encoding (also called ISO-8859-1), the humble `’`
+is represented by one byte. In UTF-8, it's represented by 3.
+
+If you're feeling like you need an Episode -2 to explain what the heck `0xE2`
+means, [I've got you covered](/thoughts/primer-on-character-encodings).
+
+## Episode 0: Introduction
+
+MySQL is partly popular because it's so easy to get up and running with it.
+
+At least, it makes you think so. But if you don't know what you're doing (and
+you used MySQL, so you probably don't!), it may be secretly fucking you over,
+allowing you to live a terrible lie for years before laughing in your face when
+you notice all your corrupted data.
+
+This is a three-part series documenting my year of encoding hell. I explain a
+disgustingly common MySQL pitfall, and the creative ways that I (and the teams
+of which I've been a part) worked through it.
+
+I believe I'm writing in an approachable way even for near-beginners, but if
+you're feeling totally lost in regards to this "encoding" nonsense, stop
+dallying and [educate yo'self][joel].
+
+  [joel]: http://www.joelonsoftware.com/articles/Unicode.html
+
+## Episode 1: Charitybuzz: Extravagant gymnastics for a small-data problem
+
+[Charitybuzz] and I had a brief fling. While I was there, we attempted to
+upgrade from Ruby 1.8 to Ruby 1.9. Everything looked great, the app was
+running, so we deployed it. But soon! We got reports of things like "Mikeâ€™s"
+showing up instead of "Mike’s".
+
+  [Charitybuzz]: http://charitybuzz.com/
+
+Oh my goodness MySQL does this all the time. And here's what happened:
+
+### Putting stuff into the database:
+
+1. Ruby 1.8 is a fairly dumb language, when it comes to character-encoding (I
+   guess other languages are too, like PHP). It doesn't really know anything
+   about the bytes it's throwing around.
+2. Now I, being the modern individual I am, use a computer that IS smart about
+   encodings, and thus uses UTF-8 (because UTF-8 can represent basically all
+   the languages and even [non-language characters][poo] out there, except
+   maybe for some of Japan's alphabets).
+3. So I pass some UTF-8 bytes to the Charitybuzz web app, where Ruby 1.8 takes
+   my bytes and starts storing them in the database. And THIS IS WHERE IT ALL
+   GOES WRONG.
+4. The database is Latin1, because the schmucks that made MySQL thought it best
+   to not bother n00bs with encoding worries, and instead delay all this pain
+   until it's 1000x worse. The _really_ schmucky thing, they made the default
+   _Latin1!!_ Instead of UTF-8!! Ugh.
+5. Okay, so now, MySQL says to Ruby, "Hey, I'm going to store these characters
+   as Latin1. If they're UTF-8 or something, I'll convert them for you. What
+   are they?"
+6. And Ruby 1.8, being the idiot that it is, says "Uhhh... I don't know, I
+   guess they're Latin1?" 7. MySQL says, "Great! I'll store them as-is!"
+
+  [poo]: http://www.fileformat.info/info/unicode/char/1f4a9/index.htm
+
+BOOM. **BOOOOOOM**. I just ended up with UTF-8 bytes in a database that thinks
+they're Latin1!
+
+Ok, but Ruby 1.8 keeps being idiotic and customers never notice, because all of
+their computers are in UTF-8, and here's what happens when...
+
+### Taking stuff out of the database:
+
+1. MySQL says to Ruby 1.8, "Hey, I've got Latin1 characters; if you need them
+   in an intelligent encoding like UTF-8 I can do that for you."
+2. Ruby 1.8 says "Oh, boy, I really don't know what the heck you're talking
+   about. How about you just give me the bytes as-is?"
+3. MySQL obliges, which means Ruby 1.8 ends up with the good UTF-8 bytes it
+   unknowingly stored in the first place.
+
+### Enter Ruby 1.9
+
+Ruby 1.9 is smart about character encodings. Really freakin' smart. It knows
+that the web app prefers UTF-8, so when _it_ goes through the "putting stuff
+into the database" process, the UTF-8 bytes for `’` (`0xE2 0x80 0x99`) get
+properly converted to the Latin1 bytes (`0x92`).
+
+BUT WHAT ABOUT WHEN OLD `’`s COMES BACK OUT?
+
+Exactly. You're one step ahead of me. Let's go through the "taking stuff out of
+the database" flow with Ruby 1.9:
+
+1. MySQL says to Ruby 1.9, "Hey, I've got Latin1 characters; if you need them
+   in an intelligent encoding like UTF-8 I can do that for you."
+2. Ruby 1.9 says, "As a matter of fact, I _do_ need them converted to UTF-8!"
+3. MySQL obliges, and does a conversion on bytes that are _already UTF-8_. It
+   says "Let's see, in Latin1, `0xE2` is 'â', `0x80` is '€', and `0x99` is
+   '™'." And you end up with "Mikeâ€™s"!
+
+### So then, how does one upgrade to the obviously superior language, Ruby 1.9, without mangling data?
+
+One other caveat that we didn't really cover: _I_ am a modern individual,
+proudly using a computer that defaults to UTF-8. But it's possible that other
+users of the website were using some other encoding.
+
+That is, there are more than two encodings. Most of the world, these days, uses
+UTF-8. But there are still holdouts of older, crappier encodings, more
+analogous to Latin1.
+
+Fortunately, at Charitybuzz, all data on the website is entered in a controlled
+way by a limited set of people, and we knew that they had always been savvy
+enough to be using UTF-8. We knew that we had all UTF-8 data in our Latin1
+database.
+
+#### The ideal solution
+
+It would be really freakin' cool if one could just reach into the settings of a
+MySQL database and turn a dial. Like, if there were a dial pointed at Latin1,
+and you just had to friggin' turn it to UTF-8. Problem solved!
+
+Perhaps such a happy path exists, but [my searches for it][stack] turned up
+empty. Please inform me if you know better.
+
+  [stack]: http://dba.stackexchange.com/questions/33365/tell-mysql-to-start-using-utf-8-encoding-without-convert-toing-it
+
+#### A damn dirty hack that works decently if you have a small amount of data (which Charitybuzz did)
+
+The closest I found to turning-the-dial-to-point-at-Latin1 was this:
+
+1. Convert _each column_ to the `binary` encoding (if you just use `CONVERT TO`
+   on a whole table, [MySQL does stupid things][stupid])
+2. Convert _each column_ to the `UTF-8` encoding
+
+  [stupid]: http://dba.stackexchange.com/a/33514/18310
+
+`binary` is an encoding that treats everything as bytes. When you `ORDER BY` in
+a binary database, "Zebra" ends up being before "apple" because "Z" is `0x5A`
+and "a" is `0x61`. When you do a database-backed search for "alfred" with a
+binary database, it will not find "Alfred".
+
+So converting each column to binary makes MySQL as clueless about what the
+bytes mean as Ruby 1.8 is. They're all just bytes. When you get to the next
+step and convert each column to UTF-8, it therefore just leaves the bytes
+as-is.
+
+This two-step conversion of each individual column seems like a buttload of
+gymnastics for something that, in my opinion, ought to be as simple as turning
+a dial. But it's honestly the simplest thing I found. If you know of something
+easier, _please share it!_
+
+Okay, so doing two conversions on each column manually is obviously out of the
+question. So I wrote [a bash script](https://gist.github.com/chadoh/4627921)
+that does it for you.
+
+#### One gotcha
+
+A binary encoding is stupid enough to not know that "alfred" is the same as
+"Alfred". Likewise, a UTF-8 encoding is smart enough to know that "Sophia" _is_
+the same as "Sophiá". So your database-backed searches will now work way better
+for your non-English users! Great!
+
+Yes, great, but when you're doing this conversion, this newfound
+byte-intelligence could cause a problem. At Charitybuzz, we had a "username"
+column that we told MySQL needed to be unique for each user. In Latin1,
+"Sophia" and "Sophiá" are different, so the uniqueness constraint was
+satisfied. But once we tried to switch to UTF-8, switching the "Sophiá" record
+to UTF-8 made MySQL notice, for the first time, that two usernames were the
+same. The uniqueness constrain was violated, and the conversion failed.
+
+Here again, the small amount of data saved the day. We were able to determine
+that Sophiá had been a one-time visitor who hadn't used the site in a couple of
+years. We decided to switch her username to "Sophiá2", and then everything ran
+happily.
+
+Again, this whole approach only worked because we had a small amount of data.
+In Episode 2 next week, I'll discuss this problem writ large(r), as is the case
+at [PipelineDeals](https://www.pipelinedeals.com/).
+
+I hope you either learned a bit about character encodings and MySQL, or are
+enraged that I dealt with this in such a stupid manner. Either way, let me know
+in the comments!
+
+## Episode 2: PipelineDeals: Corrupted medium-data! Maybe just give up?
+
+Come back next week to see what happens when the database isn't particularly
+small, and when thousands of users the world over enter data in a multitude of
+encodings!
+
+## Episode 3: Problem Child: How to handle bytes that think they're _supposed_ to look like "Mikeâ€™s"
+
+I got a database dump from an old database that no longer exists. Problem was,
+there were UTF-8 bytes in that Latin1 database, which ended up being needlessly
+transcoded and stored permanently in a file. There's no longer any good version
+of the data in existence. What to do?

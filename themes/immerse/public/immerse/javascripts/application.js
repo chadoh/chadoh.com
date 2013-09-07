@@ -22,7 +22,7 @@ function height() {
   return $('#columns').h();
 }
 function idealHeight() {
-  return ($(window).h() - $('nav#main').h()) * .8;
+  return ($(window).h() - $('nav#main').h()) * .9;
 }
 
 function adjustHeight() {
