@@ -44,14 +44,12 @@ dallying and [educate yo'self][joel].
 
   [joel]: http://www.joelonsoftware.com/articles/Unicode.html
 
-## Episode 1: Charitybuzz: Extravagant gymnastics for a small-data problem
+## Episode 1: Extravagant gymnastics for a small-data problem
 
-[Charitybuzz] and I had a brief fling. While I was there, we attempted to
-upgrade from Ruby 1.8 to Ruby 1.9. Everything looked great, the app was
-running, so we deployed it. But soon! We got reports of things like "Mikeâ€™s"
-showing up instead of "Mike’s".
-
-  [Charitybuzz]: http://charitybuzz.com/
+While I was working for a previous employer, we attempted to upgrade from Ruby
+1.8 to Ruby 1.9. Everything looked great, the app was running, so we deployed
+it. But soon! We got reports of things like "Mikeâ€™s" showing up instead of
+"Mike’s".
 
 Oh my goodness MySQL does this all the time. And here's what happened:
 
@@ -64,9 +62,8 @@ Oh my goodness MySQL does this all the time. And here's what happened:
    encodings, and thus uses UTF-8 (because UTF-8 can represent basically all
    the languages and even [non-language characters][poo] out there, except
    maybe for some of Japan's alphabets).
-3. So I pass some UTF-8 bytes to the Charitybuzz web app, where Ruby 1.8 takes
-   my bytes and starts storing them in the database. And THIS IS WHERE IT ALL
-   GOES WRONG.
+3. So I pass some UTF-8 bytes to the web app, where Ruby 1.8 takes my bytes and
+   starts storing them in the database. And THIS IS WHERE IT ALL GOES WRONG.
 4. The database is Latin1, because the schmucks that made MySQL thought it best
    to not bother n00bs with encoding worries, and instead delay all this pain
    until it's 1000x worse. The _really_ schmucky thing, they made the default
@@ -123,10 +120,10 @@ That is, there are more than two encodings. Most of the world, these days, uses
 UTF-8. But there are still holdouts of older, crappier encodings, more
 analogous to Latin1.
 
-Fortunately, at Charitybuzz, all data on the website is entered in a controlled
-way by a limited set of people, and we knew that they had always been savvy
-enough to be using UTF-8. We knew that we had all UTF-8 data in our Latin1
-database.
+Fortunately, at the company I worked at, all data on the website is entered in
+a controlled way by a limited set of people, and we knew that they had always
+been savvy enough to be using UTF-8. We knew that we had all UTF-8 data in our
+Latin1 database.
 
 #### The ideal solution
 
@@ -139,7 +136,7 @@ empty. Please inform me if you know better.
 
   [stack]: http://dba.stackexchange.com/questions/33365/tell-mysql-to-start-using-utf-8-encoding-without-convert-toing-it
 
-#### A damn dirty hack that works decently if you have a small amount of data (which Charitybuzz did)
+#### A damn dirty hack that works decently if you have a small amount of data
 
 The closest I found to turning-the-dial-to-point-at-Latin1 was this:
 
@@ -176,9 +173,9 @@ the same as "Sophiá". So your database-backed searches will now work way better
 for your non-English users! Great!
 
 Yes, great, but when you're doing this conversion, this newfound
-byte-intelligence could cause a problem. At Charitybuzz, we had a "username"
-column that we told MySQL needed to be unique for each user. In Latin1,
-"Sophia" and "Sophiá" are different, so the uniqueness constraint was
+byte-intelligence could cause a problem. At the company I worked for, we had a
+"username" column that we told MySQL needed to be unique for each user. In
+Latin1, "Sophia" and "Sophiá" are different, so the uniqueness constraint was
 satisfied. But once we tried to switch to UTF-8, switching the "Sophiá" record
 to UTF-8 made MySQL notice, for the first time, that two usernames were the
 same. The uniqueness constrain was violated, and the conversion failed.
