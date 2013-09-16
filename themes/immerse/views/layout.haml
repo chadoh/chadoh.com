@@ -9,9 +9,9 @@
     %title= "#{@page.heading} - chadoh"
     %link{ :href => "/css/master.css", :media => "screen", :rel => "stylesheet", :type => "text/css" }
     - local_stylesheet_link_tag('local')
-    %link{ :href => "/immerse/stylesheets/scrollbar.css", :media => "screen", :rel => "stylesheet", :type => "text/css" }
     %link{ :href => "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css", :rel => "stylesheet" }
     %link{ :href => "/articles.xml", :rel => "alternate", :type => "application/atom+xml" }
+    %link(rel="stylesheet" href="/immerse/stylesheets/tomorrow.css")
     = haml :analytics, :layout => false
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
   %body{ :class => body_class }
@@ -32,4 +32,6 @@
         = succeed "." do
           %a{ :href => "http://nestacms.com" } Ruby CMS
   %script(type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+  %script(type='text/javascript' src="/immerse/javascripts/highlight.pack.js")
+  %script(type='text/javascript' src="/immerse/javascripts/hashchange.min.js")
   %script(type='text/javascript' src='/immerse/javascripts/application.js')

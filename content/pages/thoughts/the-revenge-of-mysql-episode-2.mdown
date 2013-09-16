@@ -1,0 +1,143 @@
+Date: 2013-09-16
+
+# The Revenge of MySQL, Episode 2: How to Handle Bytes That Think They're Supposed To Look Like "Mikeâ€™s"
+
+## Episode -1: Background
+
+Consider thee the Right Single Quotation Mark (the "smart quote" used in words
+like "it’s"):
+
+<table class="table table-bordered">
+  <tr>
+    <td rowspan="2" style="vertical-align:middle">’</td>
+    <td>UTF-8</td>
+    <td>Latin1</td>
+  </tr>
+  <tr>
+    <td><code>0xE2 0x80 0x99</code></td>
+    <td><code>0x92</code></td>
+  </tr>
+</table>
+
+Notice that in the "Latin1" encoding (also called ISO-8859-1), the humble `’`
+is represented by one byte. In UTF-8, it's represented by 3.
+
+If you're feeling like you need an Episode -2 to explain what the heck `0xE2`
+means, [I've got you
+covered](http://chadoh.com/thoughts/primer-on-character-encodings).
+
+## Episode 0: Introduction
+
+MySQL is partly popular because it's so easy to get up and running with it.
+
+At least, it makes you think so. But if you don't know what you're doing (and
+you used MySQL, so you probably don't!), it may be secretly fucking you over,
+allowing you to live a terrible lie for years before laughing in your face when
+you notice all your corrupted data.
+
+This is a three-part series documenting my year of encoding hell. I explain a
+disgustingly common MySQL pitfall, and the creative ways that I (and the teams
+of which I've been a part) worked through it.
+
+I believe I'm writing in an approachable way even for near-beginners, but if
+you're feeling totally lost in regards to this "encoding" nonsense, stop
+dallying and [educate yo'self][joel].
+
+  [joel]: http://www.joelonsoftware.com/articles/Unicode.html
+
+## Episode 1: Extravagant gymnastics for a small-data problem
+
+If you want to know how and why MySQL frequently ends up garbling people's data
+into things like "Mikeâ€™s", [Episode 1] is where to start. I run through the
+details of the problem, and explain how to fix it if you've got a small amount
+of well-formed data.
+
+  [Episode 1]: http://chadoh.com/thoughts/the-revenge-of-mysql-episode-1
+
+## Episode 2: Problem Child: How to handle bytes that think they're supposed to look like "Mikeâ€™s"
+
+Here I had the same problem, except the database no longer existed.
+
+Let me explain.
+
+I was given the last vestige of an old database with important data in it. I
+started writing a script to parse the dump file and import it into a new
+database, and I noticed a "doctorâ€™s office". Interesting. There was no longer
+a database at all; the characters "â€™" were permanently written to this text
+file.
+
+Clearly, the database had been in encoded in Latin1, MySQL's obnoxious default,
+but had UTF-8 bytes in it. Just like in Episode 1. But now, I lost the ability
+to tell the database, "No, really, just leave the bytes as-is!" It had already
+done the unnecessary transcoding, and now I was permanently left with hogwash.
+
+I almost gave up. Thinking about this stuff is hard. I thought "whatever, it's
+a smallish amount of data, and I have friends who could be convinced to help
+manually clean it." But given all of my other encoding problems lately, I
+decided to tough it out.
+
+### Describing the problem
+
+1. I had good UTF8 bytes, `0xE2 0x80 0x99` representing `’`
+2. Those bytes had a Latin1-&gt;UTF8 transcoding applied to them
+3. This resulted in good UTF8 bytes, but not the ones a human wants; `0xC3
+   0xA2` `0xE2 0x82 0xAC` `0xE2 0x84 0xA2`, for
+   "[â](http://www.fileformat.info/info/unicode/char/00e2/index.htm)[€](http://www.fileformat.info/info/unicode/char/20ac/index.htm)[™](http://www.fileformat.info/info/unicode/char/2122/index.htm)".
+
+So now what sort of transcoding can I apply? These are no longer any sort of
+good bytes, right? A UTF8-&gt;Latin1 transcoding might give me back `0xE2 0x80
+0x99`, but in Latin1 that's still "â€™".
+
+### And then, a solution
+
+Ruby 1.9 and greater have great tools for dealing with this. After I started
+writing out the problem like above, my familiarity with these tools made the
+solution obvious.
+
+1. Transcode from UTF8-&gt;Latin1, resulting in a Latin1 string with good UTF8
+   bytes (`0xE2 0x80 0x99`)
+2. Force the encoding to UTF8
+
+Voila!
+
+Written out in Ruby, this is even easier to read:
+
+    text = text.encode('ISO-8859-1').force_encoding('UTF-8')
+
+(I don't blame you for forgetting that the official name of Latin1 is
+"ISO-8859-1".)
+
+Aaaand... it blew up. For some reason, Ruby didn't know how to represent some
+of these characters in Latin1, such as "€" and "™". So I did some research, and
+came up with this:
+
+    text = text.encode(
+      'ISO-8859-1',
+      :fallback => {
+        "€" => "\x80".force_encoding('ISO-8859-1'),
+        "™" => "\x99".force_encoding('ISO-8859-1'),
+        "˜" => "\x98".force_encoding('ISO-8859-1'),
+        "”" => "\x94".force_encoding('ISO-8859-1'),
+        "“" => "\x93".force_encoding('ISO-8859-1'),
+        "œ" => "\x9c".force_encoding('ISO-8859-1'),
+        "\u009D" => "\xfd".force_encoding('ISO-8859-1'),
+      }
+    ).force_encoding('UTF-8')
+
+I've posted [the complete conversion on Gist](https://gist.github.com/6536842),
+so you can see it in context, if you'd like.
+
+### An easier way
+
+It turns out that [Latin1 usually refers to a superset of ISO-8859-1 called
+Windows-1252](http://www.amainhobbies.com/FromTheCEO/2012/03/31/all-about-iso-8859-1-windows-1252-and-latin1-html-and-mysql/).
+This superset includes characters like "€" and "™".
+
+I didn't know this at the time, or I may have not needed so many "fallbacks".
+Good to know! Hopefully knowing this saves someone else that effort.
+
+## Episode 3: PipelineDeals: Corrupted medium-data! Maybe just give up?
+
+Episodes 1 & 2 focused on encoding problems with "small data". Come back next
+week to learn about some ways to approach the problem when the database isn't
+so small.

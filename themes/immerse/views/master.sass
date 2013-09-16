@@ -25,8 +25,8 @@ $base-light: lighten($base-color, 50%)
 
 // color (from http://www.colourlovers.com/palette/53148/immersed)
 $page-background: #C4BFD6
-$link: #98AA9C
-$link-visited: #B8C79E
+$link: #718c00
+$link-visited: #718c00
 $link-border: #EAD78A
 $link-highlight: #F1ECCF
 
@@ -141,7 +141,7 @@ h1, h2, h3, h4
   -moz-break-after: avoid
   break-after: avoid
 
-h1, h2, h3, h4, img, table
+h1, h2, h3, h4, img, table, pre
   -webkit-column-break-inside: avoid
   -moz-break-inside: avoid
   break-inside: avoid
@@ -243,11 +243,12 @@ nav#main
   width: 100%
   height: 100%
   overflow-x: scroll
-  padding-bottom: 1em
+  padding: 0 2px 2px
 #columns
   padding: 0 12px
   +column-count(2)
   +column-gap(50px)
+  position: relative
   p, li
     text-align: justify
 .no-columns
@@ -255,6 +256,13 @@ nav#main
     +column-count(1)
   #column-wrap
     overflow-x: auto
+
+#column-wrap [class^="icon-chevron-"]
+  color: $base-color
+  padding: 0
+  font-size: 1.3em
+#column-wrap .icon-chevron-left[href='#-1']
+  display: none
 
 .fixed-columns
   > .left
@@ -346,11 +354,6 @@ body
     max-width: 100%
     margin-bottom: $base-vertical-margin
     border: none
-
-  pre
-    border-left: 0.4em solid $border-color
-    code
-      padding: 0
 
   // Pages/articles assigned to this page
   ol.pages
