@@ -4,11 +4,10 @@
       %li
         - haml_tag (defined?(heading) ? heading : :h2) do
           %a{ :href => page.abspath }= page.heading
-        - if page.date
-          .date= format_date(page.date)
         - if page.summary.nil? || page.summary.empty?
           ~ page.body
         - else
           ~ page.summary
           %p.read_more
             %a{ :href => page.abspath }= page.read_more
+        = haml :page_meta, :layout => false, :locals => { :page => page }

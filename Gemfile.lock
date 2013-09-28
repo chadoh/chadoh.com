@@ -21,7 +21,7 @@ GEM
     rack-protection (1.5.0)
       rack
     rdiscount (1.6.8)
-    sass (3.2.10)
+    sass (3.2.11)
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.4.3)

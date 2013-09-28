@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    - if @description
+      %meta(name="description" content=@description)
+    - if @keywords
+      %meta(name="keywords" content=@keywords)
+    %title= "#{@page.heading.downcase} : #{@heading.downcase}"
+    %link{href: "/mni/stylesheets/skeleton/base.css", :rel => "stylesheet"}
+    %link{href: "/mni/stylesheets/skeleton/skeleton.css", :rel => "stylesheet"}
+    %link{href: "/mni/stylesheets/skeleton/layout.css", :rel => "stylesheet"}
+    %link{ :href => "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css", :rel => "stylesheet" }
+    <!--[if ! lte IE 6]><!-->
+    %link(href="#{url('/css/master.css')}" media="screen" rel="stylesheet")
+    <!--<![endif]-->
+    /[if lte IE 6]
+      %link(rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection")
+    /[if lt IE 9]
+      %script(src="//html5shim.googlecode.com/svn/trunk/html5.js")
+    - local_stylesheet_link_tag('local')
+    %link(href="#{url('/articles.xml')}" rel="alternate" type="application/atom+xml")
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+  %body
+    .container
+      = haml :header, layout: false
+      = yield
+      = haml :footer, layout: false
